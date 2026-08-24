@@ -1,13 +1,10 @@
 # Sway releases
 
-Release binaries for Sway. The source lives in a private repository; this repo
-holds only the built artifacts and install instructions. The app itself is
-never in the file tree: each DMG is attached to its entry on the
+Official release builds of Sway, a dev workflow manager: session tree, Claude
+terminal, and editor in one app. Each build is attached to its entry on the
 [Releases page](../../releases).
 
-Sway is currently in alpha and the builds are unsigned. macOS will refuse a
-plain download with a "damaged" dialog unless you install through one of the
-paths below.
+Sway is in alpha: expect fast iteration and frequent updates.
 
 ## Install with Homebrew (recommended)
 
@@ -15,9 +12,8 @@ paths below.
 brew install --cask skarif2/tap/sway
 ```
 
-Homebrew asks you to trust the tap on first use; that prompt is expected. The
-cask clears macOS quarantine itself after install, so no extra flags are
-needed. Upgrades work the usual way:
+Homebrew asks you to confirm trust for the tap the first time; confirm and
+you're set. Everything is handled for you, including updates:
 
 ```sh
 brew upgrade --cask sway
@@ -25,14 +21,15 @@ brew upgrade --cask sway
 
 ## Install from the DMG
 
-1. Download the `.dmg` from the [latest release](../../releases) (alphas are
-   marked pre-release, so they do not show under "Latest").
-2. Drag `Sway.app` to `/Applications`.
-3. Clear the quarantine attribute:
+1. Download the `.dmg` from the [Releases page](../../releases) (alpha builds
+   are listed as pre-releases).
+2. Drag `Sway.app` into `/Applications`.
+3. Run this once so macOS opens the app right away:
 
 ```sh
 xattr -cr /Applications/Sway.app
 ```
 
-Without step 3, macOS reports the app as damaged. This goes away once builds
-are signed and notarized.
+Alpha builds are not signed yet, which is why direct downloads take this one
+extra step (Homebrew takes care of it for you). Repeat it after installing a
+new version from a DMG. Signed builds will make it unnecessary.
